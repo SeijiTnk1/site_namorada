@@ -1,0 +1,786 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&family=Oldenburg&family=Tangerine:wght@400;700&display=swap');
+
+
+/* ABAS */
+.home {
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), radial-gradient(circle, transparent 0%, rgba(0, 0, 0, 0.9) 100%), 
+        url('background/lirio-pronto.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0%;
+}
+
+.foryou {
+    background-image:
+        linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 0.9) 100%),
+        url('background/lirios-cpa.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.ourday {
+    background-image:
+        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 0.9) 100%),
+        url('background/lirios-01.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.memories {
+    position: relative;
+    min-height: 100vh;
+}
+
+.memories::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.5)),
+        radial-gradient(circle, transparent 30%, rgba(0,0,0,0.9) 100%),
+        url('background/lirio-memories.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CORAÇÕES SUBINDO */
+.hearts {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 0;
+
+}
+
+.hearts span {
+    position: absolute;
+    bottom: -100px;
+    color: rgba(215, 11, 59, 0.364);
+    animation: subir linear infinite;
+}
+
+@keyframes subir {
+
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-120vh) scale(1.3);
+        opacity: 0;
+    }
+}
+
+.hearts span:nth-child(1) {
+    left: 5%;
+    font-size: 20px;
+    animation-duration: 12s;
+}
+
+.hearts span:nth-child(2) {
+    left: 15%;
+    font-size: 35px;
+    animation-duration: 13s;
+}
+
+.hearts span:nth-child(3) {
+    left: 28%;
+    font-size: 30px;
+    animation-duration: 11s;
+}
+
+.hearts span:nth-child(4) {
+    left: 40%;
+    font-size: 24px;
+    animation-duration: 18s;
+}
+
+.hearts span:nth-child(5) {
+    left: 52%;
+    font-size: 25px;
+    animation-duration: 11s;
+}
+
+.hearts span:nth-child(6) {
+    left: 63%;
+    font-size: 30px;
+    animation-duration: 14s;
+}
+
+.hearts span:nth-child(7) {
+    left: 74%;
+    font-size: 24px;
+    animation-duration: 13s;
+}
+
+.hearts span:nth-child(8) {
+    left: 82%;
+    font-size: 38px;
+    animation-duration: 16s;
+}
+
+.hearts span:nth-child(9) {
+    left: 90%;
+    font-size: 40px;
+    animation-duration: 12s;
+}
+
+.hearts span:nth-child(10) {
+    left: 97%;
+    font-size: 26px;
+    animation-duration: 14s;
+}
+
+/* TRANSIÇÃO LENTA */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* CABEÇALHO (MENU) */
+.cabecalho {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.4s ease;
+}
+
+.cabecalho.esconder {
+    transform: translateY(-100%);
+}
+
+.cabecalho nav {
+    background-color: rgba(42, 2, 2, 0.959);
+    padding: 1rem 1rem;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    gap: 30px;
+    padding: 12px;
+    justify-content: center;
+}
+
+.cabecalho nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 10px 30px;
+    border: 1px solid rgba(201, 182, 182, 0.393);
+    border-radius: 12px;
+    background-color: rgba(61, 5, 5, 0.81);
+    transition: 0.3s;
+}
+
+.cabecalho nav a:not(.ativo):hover {
+    background-color: rgba(25, 1, 1, 0.841);
+    border-color: rgba(105, 6, 6, 0.452);
+    box-shadow: 0 0 20px rgba(196, 30, 58, 0.3);
+}
+
+/* HOME */
+.ativo {
+    border: 1px solid rgba(239, 5, 5, 0.863);
+    background: linear-gradient(
+        to bottom,
+        rgba(163, 16, 41, 0.503),
+        rgba(69, 9, 19, 0.179));
+    box-shadow:
+        0 0 15px rgba(177, 21, 21, 0.544),
+        inset 0 0 10px rgba(196, 30, 58, 0.15);
+    backdrop-filter: blur(6px);
+}
+
+.text-mini {
+    font-family: sans-serif;
+    font-size: 14px;
+    letter-spacing: 5px;
+    color: #c10000df;
+    margin-bottom: 20px;
+    animation: aparecer 2s ease;
+}
+
+
+.frase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 90px;
+    font-weight: 100;
+    line-height: 1.1;
+    color: aliceblue;
+    margin-top: 120px;
+    animation: aparecer 2s ease;
+}
+
+.rosa {
+    color: #f2b6c6;
+}
+
+.linha {
+    width: 200px;
+    height: 2.5px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        #ff002b,
+        transparent
+    );
+    margin: 40px auto;
+    animation: aparecer 2s ease;
+}
+
+.text-final {
+    
+    font-size: 20px;
+    text-align: center;
+    color: #8b8b8be3;
+    padding: 60px 18%;
+    animation: aparecer 2s ease;
+}
+
+/* FOR YOU */
+.for-you {
+    min-height: 100vh;
+    padding: 120px 18% 30px;
+}
+
+.mini-title {
+    color: #c5103a;
+    letter-spacing: 8px;
+    font-size: 12px;
+    margin-bottom: 20px;
+    animation: aparecer 2s ease;
+}
+
+.for-you h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 90px;
+    font-weight: 400;
+    line-height: 1.0;
+    color: #fdfdfd;
+    margin-bottom: 40px;
+    animation: aparecer 2s ease;
+}
+
+.line {
+    width: 150px;
+    height: 1.5px;
+    background: linear-gradient(
+        to right,
+        #ff003c,
+        #8b0027,
+        transparent
+    );
+    margin-bottom: 70px;
+    animation: aparecer 2s ease;
+}
+
+.text-block {
+    max-width: 700px;
+}
+
+.section-title {
+    color: #bd1142;
+    letter-spacing: 5px;
+    font-size: 13px;
+    margin-bottom: 20px;
+    margin-top: 120px;
+    animation: aparecer 2s ease;
+}
+
+.main-text {
+    font-family: "Oldenburg", serif;
+    margin-bottom: 100px;
+    font-size: 20px;
+    line-height: 2.0;
+    color: #d7d7d7;
+    animation: aparecer 2s ease;
+}
+
+.final-page {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 80px 18%;
+    color: white;
+    animation: aparecer 2s ease;
+}
+
+.line01 {
+    width: 700px;
+    height: 0.5px;
+    margin-bottom: 40px;
+    background: #8b0027;
+    animation: aparecer 2s ease;
+}
+
+.final-page h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: #f995abe0;
+    margin-bottom: 10px;
+    animation: aparecer 2s ease;
+}
+
+.final-page p {
+    color: #555555;
+    font-size: 22px;
+    animation: aparecer 2s ease;
+}
+
+/* OUR DAY */
+.our-day {
+    min-height: 100vh;
+    padding: 120px 18% 0px;
+}
+
+.our-day h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 90px;
+    font-weight: 400;
+    line-height: 1.0;
+    color: #fdfdfd;
+    margin-bottom: 40px;
+    animation: aparecer 2s ease;
+}
+
+.citacao {
+    max-width: 1000px;
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    border-left: 2px solid #8b0000;
+    margin-bottom: 80px;
+    animation: aparecer 2s ease;
+}
+
+.citacao p {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    line-height: 1.7;
+    color: rgb(190, 185, 185);
+    margin-bottom: 150px;
+    animation: aparecer 2s ease;
+}
+
+.day-block {
+    margin-bottom: 60px;
+    animation: aparecer 2s ease;
+}
+
+.final-page-our {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+    color: rgb(124, 124, 124);
+    line-height: 1.8;
+    animation: aparecer 2s ease;
+}
+
+.final-page-our p {
+    font-size: 22px;
+    animation: aparecer 2s ease;
+}
+
+
+/* MEMORIES */
+.memories-body {
+    min-height: 0vh;
+    text-align: center;
+    margin-top: 120px;
+}
+
+.memories h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 100px;
+    font-weight: 400;
+    line-height: 1.0;
+    color: #fdfdfd;
+    margin-bottom: 40px;
+    animation: aparecer 2s ease;
+}
+
+.line-memories {
+    
+    width: 200px;
+    height: 2.5px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        #ff002b,
+        transparent
+    );
+    margin: 40px auto;
+    animation: aparecer 2s ease;
+}
+
+/* FRASE TIMELINE */
+.timeline-start{
+    text-align: center;
+    margin-top: 200px;
+    color: white;
+}
+
+.timeline-start span{
+    color: #ff003c;
+    letter-spacing: 8px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.timeline-start h1{
+    
+    font-size: 60px;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+/* TIMELINE */
+.timeline{
+    position: relative;
+    max-width: 1400px;
+    margin: 100px auto;
+    padding: 0px 5%;
+}
+
+.timeline::before{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: #ff003c;
+}
+
+.timeline-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin: 140px 0;
+}
+
+.timeline-item.left{
+    flex-direction: row;
+}
+
+.timeline-item.right{
+    flex-direction: row-reverse;
+}
+
+.timeline-image,
+.timeline-content{
+    width: 42%;
+}
+
+.timeline-image{
+    display: flex;
+    justify-content: center;
+}
+
+.timeline-content{
+    /* BORRAO */
+    padding: 30px;
+    background: rgba(97, 0, 0, 0.43);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.timeline-image img{
+    width: 100%;
+    max-width: 340px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(214, 1, 51, 0.821);
+}
+
+.timeline-content h2{
+    font-family: "Henny Penny", system-ui;
+    color: white;
+}
+
+.timeline-content p{
+    font-family: "Oldenburg", serif;
+    color: white;
+}
+
+.timeline-item::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 120px;
+    height: 3px;
+    background: #ff003c;
+    box-shadow: 0 0 10px #ff003c;
+    transform: translateY(-50%);
+}
+
+.timeline-item::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #ff003c;
+    box-shadow: 0 0 15px #ff003c;
+    z-index: 2;
+}
+
+.timeline-item.left::before{
+    left: calc(50% - 120px);
+}
+
+.timeline-item.right::before{
+    left: 50%;
+}
+
+.timeline-end{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 140px;
+    color: #ff003c;
+    font-size: 80px;
+    text-shadow: 0 0 20px #ff003c;
+    animation: floatArrow 2s ease-in-out infinite;
+}
+
+@keyframes floatArrow{
+    0%{
+        transform: translateY(0);
+    }
+
+    50%{
+        transform: translateY(10px);
+    }
+
+    100%{
+        transform: translateY(0);
+    }
+}
+
+.timeline-end01{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    color: #ff003c;
+    font-size: 60px;
+    text-shadow: 0 0 20px #ff003c;
+    animation: floatArrow 2s ease-in-out infinite;
+}
+
+.fade-in{
+    animation: aparecer 2s ease;
+}
+
+
+/* MUSICA */
+.music-player-inline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 280px;
+    margin: 150px auto 60px auto;
+    padding: 20px 25px;
+    border-radius: 20px;
+    background: rgba(97, 0, 0, 0.35);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 0, 60, 0.2);
+    position: relative;
+    z-index: 10;
+}
+ 
+.music-player-inline .controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+ 
+.music-player-inline button {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+ 
+.music-player-inline button:hover {
+    color: #ff003c;
+}
+ 
+.music-player-inline #music-progress {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 10px;
+    background: rgba(182, 1, 1, 0.305);
+    cursor: pointer;
+}
+ 
+.music-player-inline #music-progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #9d0404f0;
+    cursor: pointer;
+}
+ 
+.music-player-inline #music-time {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+}
+
+.pequeno {
+    font-size: 12px;
+}
+
+/* VIDEOS */
+.video-gallery{
+    padding: 150px 5%;
+    text-align: center;
+}
+
+.video-gallery h2{
+    font-family: "Henny Penny", system-ui;
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 50px;
+    text-shadow:
+        0 0 10px rgba(227, 1, 54, 0.63),
+        0 0 20px rgba(218, 3, 53, 0.4);
+}
+
+.video-container{
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#memory-video{
+    width: 350px;
+    height: 620px;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+}
+
+.prev-btn,
+.next-btn{
+    position: absolute;
+
+    background: rgba(0,0,0,0.5);
+
+    border: none;
+
+    color: white;
+
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: .3s;
+}
+
+.prev-btn{
+    left: 380px;
+}
+
+.next-btn{
+    right: 380px;
+}
+
+.prev-btn:hover,
+.next-btn:hover{
+    transform: scale(1.1);
+}
+
+.final-page-memories {
+    margin-top: 100px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+    color: rgba(255, 255, 255, 0.777);
+    line-height: 1.8;
+    animation: aparecer 2s ease;
+}
+
+.final-page-memories p {
+    font-size: 28px;
+    animation: aparecer 2s ease;
+}
+
+.final-page-memories h1 {
+    font-size: 65px;
+    margin-top: 30px;
+    animation: aparecer 2s ease;
+}
+
+/*  FONTES ROMANTICAS
+    font-family: 'Cormorant Garamond', serif;
+    font-family: 'EB Garamond', serif;
+    font-family: 'Cinzel', serif; */
