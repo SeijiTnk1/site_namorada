@@ -76,7 +76,7 @@ if (music) {
 
     const fmt = s => `${String(Math.floor(s / 60)).padStart(2,'0')}:${String(Math.floor(s) % 60).padStart(2,'0')}`;
 
-    /* salva índice e tempo antes de sair — NÃO salva mais o estado de pausa */
+    /* salva índice e tempo antes de sair */
     window.addEventListener("beforeunload", () => {
         localStorage.setItem("musicIndex", currentMusic);
         localStorage.setItem("musicTime",  music.currentTime);
@@ -105,7 +105,14 @@ if (music) {
     });
 
     music.addEventListener("ended", () => {
-        loadMusic((currentMusic + 1) % playlist.length);
+
+        if (currentMusic === 0) {
+            music.currentTime = 0;
+            music.play();
+        } else {
+            loadMusic((currentMusic + 1) % playlist.length);
+        }
+
     });
 
     /* pausa quando vídeo toca */
@@ -176,8 +183,7 @@ if (music) {
         const savedIndex = Number(localStorage.getItem("musicIndex")) || 0;
         const savedTime  = Number(localStorage.getItem("musicTime"))  || 0;
 
-        /* sessionStorage só existe enquanto a aba está aberta.
-           Ao abrir uma aba nova, será null → toca automaticamente. */
+        /* sessionStorage só existe enquanto a aba está aberta */
         const estadoPausa = sessionStorage.getItem("musicPaused");
         const wasPaused   = estadoPausa === "true";
 
@@ -190,7 +196,7 @@ if (music) {
             if (tempoInicial > 0) music.currentTime = tempoInicial;
         }, { once: true });
 
-        /* usuário pausou manualmente nesta mesma aba — respeita */
+        /* usuário pausou manualmente nesta mesma aba é respeitado */
         if (wasPaused) {
             if (playButton) playButton.textContent = "▶";
             return;

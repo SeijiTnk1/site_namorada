@@ -323,7 +323,7 @@
     animation: aparecer 2s ease;
 }
 
-.citacao p {
+.citacao p { 
     font-family: 'Playfair Display', serif;
     font-size: 25px;
     line-height: 1.7;
@@ -641,12 +641,9 @@
 .final-page-memories h1 { font-size: 65px; margin-top: 30px; animation: aparecer 2s ease; }
 
 
-/* ============================================================
-   RESPONSIVO — CELULAR
-   ============================================================ */
+/* RESPONSIVO — CELULAR */
 @media (max-width: 768px) {
 
-    /* No celular, background-attachment: fixed causa bugs no iOS */
     .foryou,
     .ourday {
         background-attachment: scroll;
@@ -667,7 +664,7 @@
     /* HOME */
     .frase {
         font-size: 42px;
-        margin-top: 80px;
+        margin-top: 100px;
         text-align: center;
         padding: 0 20px;
     }
@@ -675,11 +672,13 @@
     .text-mini {
         font-size: 11px;
         letter-spacing: 3px;
+        margin-bottom: 40px;
     }
 
     .text-final {
         font-size: 15px;
         padding: 40px 6%;
+        margin-top: 80px;
     }
 
     .linha {
@@ -689,7 +688,7 @@
 
     /* FOR YOU */
     .for-you {
-        padding: 80px 6% 30px;
+        padding: 100px 6% 30px;
     }
 
     .for-you h1 {
@@ -697,7 +696,7 @@
     }
 
     .section-title {
-        margin-top: 60px;
+        margin-top: 150px;
         font-size: 11px;
         letter-spacing: 3px;
     }
@@ -712,7 +711,7 @@
     }
 
     .final-page h1 {
-        font-size: 26px;
+        font-size: 22px;
     }
 
     .final-page p {
@@ -725,7 +724,7 @@
 
     /* OUR DAY */
     .our-day {
-        padding: 80px 6% 0;
+        padding: 100px 6% 0;
     }
 
     .our-day h1 {
@@ -733,8 +732,9 @@
     }
 
     .citacao p {
-        font-size: 18px;
-        margin-bottom: 60px;
+        font-size: 15px;
+        margin-bottom: 80px;
+
     }
 
     .final-page-our {
@@ -747,7 +747,7 @@
 
     /* MEMORIES */
     .memories-body {
-        margin-top: 60px;
+        margin-top: 100px;
         padding: 0 6%;
     }
 
@@ -771,7 +771,7 @@
 
     /* TIMELINE — vira coluna única no celular */
     .timeline {
-        margin: 60px auto;
+        margin: 120px auto;
         padding: 0 5%;
     }
 
@@ -786,7 +786,7 @@
     .timeline-item.right {
         flex-direction: column;
         align-items: flex-start;
-        margin: 60px 0 60px 40px;
+        margin: 150px 0 60px 40px;
     }
 
     .timeline-image,
@@ -795,9 +795,9 @@
     }
 
     .timeline-image img {
-        max-width: 100%;
-        height: 280px;
-        margin-bottom: 16px;
+        width: 100%;
+        height: auto;
+        display: block;
     }
 
     /* Remove a linha horizontal do meio */
@@ -836,8 +836,9 @@
 
     /* Botões prev/next ficam abaixo do vídeo */
     .video-container {
-        flex-direction: column;
-        gap: 16px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .prev-btn,
@@ -885,4 +886,11 @@
         font-size: 10px;
         padding: 7px 10px;
     }
+}
+
+@media (max-width: 1300px) {
+
+    .prev-btn { left: 50px; }
+    .next-btn { right: 50px; }
+
 }
